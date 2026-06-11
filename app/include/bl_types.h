@@ -5,11 +5,11 @@
  * @file bl_types.h
  * @brief Shared constants and status codes for Blackline/SW.
  *
- * Defines the bounded 1D terrain vocabulary used by the portable search
+ * Defines the bounded 1D terrain vocabulary used by the portable terrain
  * backend.
  */
 
-/** Maximum number of cells accepted by 1D terrain search functions. */
+/** Maximum number of cells accepted by 1D terrain functions. */
 #define BL_MAX_1D_CELLS 64U
 
 /** Encoded cell containing the agent position. */

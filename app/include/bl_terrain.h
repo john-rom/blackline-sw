@@ -1,11 +1,11 @@
-#ifndef BL_SEARCH_H_
-#define BL_SEARCH_H_
+#ifndef BL_TERRAIN_H_
+#define BL_TERRAIN_H_
 
 /**
- * @file bl_search.h
- * @brief 1D terrain search helpers for Blackline/SW.
+ * @file bl_terrain.h
+ * @brief 1D terrain inspection helpers for Blackline/SW.
  *
- * Provides bounded search and lookup routines for encoded terrain buffers.
+ * Provides bounded locate and lookup routines for encoded terrain buffers.
  */
 
 #include <stdbool.h>
@@ -18,7 +18,7 @@ extern "C" {
 #endif
 
 /**
- * @brief Find the first agent cell in a 1D terrain buffer.
+ * @brief Locate the first agent cell in a 1D terrain buffer.
  *
  * On success, writes the zero-based cell index to @p idx_out.
  *
@@ -27,10 +27,11 @@ extern "C" {
  * @param[out] idx_out Pointer to index storage
  * @return BL_OK on success, or a bl_status_t error code
  */
-bl_status_t bl_find_agent_1d(const char *cells, size_t len, size_t *idx_out);
+bl_status_t bl_terrain_locate_agent_1d(const char *cells, size_t len,
+                                       size_t *idx_out);
 
 /**
- * @brief Find the first target cell in a 1D terrain buffer.
+ * @brief Locate the first target cell in a 1D terrain buffer.
  *
  * On success, writes the zero-based cell index to @p idx_out.
  *
@@ -39,7 +40,8 @@ bl_status_t bl_find_agent_1d(const char *cells, size_t len, size_t *idx_out);
  * @param[out] idx_out Pointer to index storage
  * @return BL_OK on success, or a bl_status_t error code
  */
-bl_status_t bl_find_target_1d(const char *cells, size_t len, size_t *idx_out);
+bl_status_t bl_terrain_locate_target_1d(const char *cells, size_t len,
+                                        size_t *idx_out);
 
 /**
  * @brief Check whether a 1D terrain cell is blocked.
@@ -53,11 +55,11 @@ bl_status_t bl_find_target_1d(const char *cells, size_t len, size_t *idx_out);
  * @param[out] blocked_out Pointer to blocked-state storage
  * @return BL_OK on success, or a bl_status_t error code
  */
-bl_status_t bl_is_blocked_1d(const char *cells, size_t len, size_t idx,
-                             bool *blocked_out);
+bl_status_t bl_terrain_is_blocked_1d(const char *cells, size_t len, size_t idx,
+                                     bool *blocked_out);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* BL_SEARCH_H_ */
+#endif /* BL_TERRAIN_H_ */

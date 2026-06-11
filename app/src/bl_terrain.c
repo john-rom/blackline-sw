@@ -1,6 +1,6 @@
 #include <stddef.h>
 
-#include "bl_search.h"
+#include "bl_terrain.h"
 
 static bl_status_t validate_input_1d(const char *cells, size_t len) {
   if (cells == NULL) {
@@ -18,8 +18,8 @@ static bl_status_t validate_input_1d(const char *cells, size_t len) {
   return BL_OK;
 }
 
-static bl_status_t find_marker_1d(const char *cells, size_t len, char marker,
-                                  size_t *idx_out) {
+static bl_status_t locate_marker_1d(const char *cells, size_t len, char marker,
+                                    size_t *idx_out) {
   if (idx_out == NULL) {
     return BL_ERR_NULL;
   }
